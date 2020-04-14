@@ -23,6 +23,7 @@ router.post("/register", (req, res) => {
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
+                balance: 0,
                 password: req.body.password
             });
 
@@ -34,6 +35,7 @@ router.post("/register", (req, res) => {
                     newUser.save().then(user => res.json(user)).catch(err => console.log(err));
                 });
             });
+            console.log(`New user created`);
         }
     });
 });
